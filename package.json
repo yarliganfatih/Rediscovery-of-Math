@@ -4,6 +4,7 @@
   "description": "",
   "author": "Fatih Yarlıgan",
   "license": "ISC",
+  "main": "./src/numbers/numbers.js",
   "scripts": {
     "test": "jest --ci",
     "test:watch": "jest --watch",
