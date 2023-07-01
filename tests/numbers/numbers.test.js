@@ -1,4 +1,4 @@
-const { add, subt } = require('../../src/numbers/numbers');
+const { add, subt, mult, divi, remainder } = require('../../src/numbers/numbers');
 
 
 describe('add_function', () => {
@@ -63,5 +63,115 @@ describe('subt_function', () => {
     // Tests that subt subtracts a positive integer from a negative integer
     it('subt a positive integer from a negative integer', () => {
         expect(subt(-5, 3)).toBe(-8);
+    });
+});
+
+
+describe('mult_function', () => {
+    // Tests that mult returns the correct result for two positive integers
+    it('test_mult_positive_integers', () => {
+        expect(mult(2, 3)).toBe(6);
+        expect(mult(10, 5)).toBe(50);
+        expect(mult(100, 100)).toBe(10000);
+    });
+
+    // Tests that mult returns the correct result for two negative integers
+    it('test_mult_negative_integers', () => {
+        expect(mult(-2, -3)).toBe(6);
+        expect(mult(-10, -5)).toBe(50);
+        expect(mult(-100, -100)).toBe(10000);
+    });
+
+    // Tests that mult returns the correct result for one positive and one negative integer
+    it('test_mult_positive_and_negative_integers', () => {
+        expect(mult(-2, 3)).toBe(-6);
+        expect(mult(10, -5)).toBe(-50);
+        expect(mult(-100, 100)).toBe(-10000);
+    });
+
+    // Tests that mult returns 0 when one of the integers is 0
+    it('test_mult_zero_integer', () => {
+        expect(mult(0, 3)).toBe(0);
+        expect(mult(10, 0)).toBe(0);
+        expect(mult(0, 0)).toBe(0);
+    });
+
+    // Tests that mult returns the correct result when one of the integers is the maximum integer value
+    it('test_mult_maximum_integer_value', () => {
+        expect(mult(Number.MAX_SAFE_INTEGER, 2)).toBe(Number.MAX_SAFE_INTEGER * 2);
+        expect(mult(Number.MAX_SAFE_INTEGER, -2)).toBe(Number.MAX_SAFE_INTEGER * -2);
+    });
+
+    // Tests that mult returns NaN when one of the integers is NaN
+    it('test_mult_NaN_integer', () => {
+        expect(mult(NaN, 3)).toBeNaN();
+        expect(mult(10, NaN)).toBeNaN();
+        expect(mult(NaN, NaN)).toBeNaN();
+    });
+});
+
+
+describe('divi_function', () => {
+    // Tests that positive a and positive b returns a positive result
+    it('test_positive_division', () => {
+        expect(divi(10, 2)).toBe(5);
+    });
+
+    // Tests that negative a and negative b returns a positive result
+    it('test_negative_division', () => {
+        expect(divi(-10, -2)).toBe(5);
+    });
+
+    // Tests that division by zero returns undefined
+    it('test_division_by_zero', () => {
+        expect(divi(10, 0)).toBeUndefined();
+    });
+
+    // Tests that division by one returns a
+    it('test_division_by_one', () => {
+        expect(divi(10, 1)).toBe(10);
+    });
+
+    // Tests that negative a and positive b returns a negative result
+    it('test_negative_and_positive_division', () => {
+        expect(divi(-10, 2)).toBe(-5);
+    });
+
+    // Tests that large numbers can be divided
+    it('test_large_numbers_division', () => {
+        expect(divi(1000000, 1000)).toBe(1000);
+    });
+});
+
+
+describe('remainder_function', () => {
+    // Tests that remainder returns the correct result for a happy path input (a=10, b=3)
+    it('test_remainder_happy_path_1', () => {
+        expect(remainder(10, 3)).toBe(1);
+    });
+
+    // Tests that remainder returns the correct result for a happy path input (a=0, b=5)
+    it('test_remainder_happy_path_2', () => {
+        expect(remainder(0, 5)).toBe(0);
+    });
+
+    // Tests that remainder returns the correct result for a happy path input (a=15, b=15)
+    it('test_remainder_happy_path_3', () => {
+        expect(remainder(15, 15)).toBe(0);
+    });
+
+    // Tests that remainder returns undefined when b=0
+    it('test_remainder_edge_case_1', () => {
+        expect(remainder(10, 0)).toBeUndefined();
+    });
+
+    // Tests that remainder returns the correct result when a=10 and b=0
+    it('test_remainder_edge_case_2', () => {
+        expect(remainder(0, 5)).toBe(0);
+    });
+
+    // Tests that remainder returns the correct result when a=-10 and b=-5
+    it('test_remainder_edge_case_3', () => {
+        expect(remainder(-10, -5)).toBe(0);
     });
 });

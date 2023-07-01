@@ -1,4 +1,4 @@
-const { isPositive, isNegative, invertByAdd, abs } = require('../../src/numbers/auxiliaryFunc');
+const { isPositive, isNegative, invertByAdd, abs, getCoefficient, multCoefficients } = require('../../src/numbers/auxiliaryFunc');
 
 
 describe('isPositive_function', () => {
@@ -69,5 +69,36 @@ describe('abs_function', () => {
     // Tests that the function returns the absolute value of the smallest negative number
     it('test_smallest_negative_number', () => {
         expect(abs(Number.MIN_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER + 1);
+    });
+});
+
+
+describe('getCoefficient_function', () => {
+    // Tests that a positive number returns 1
+    it('test_positive_number', () => {
+        expect(getCoefficient(5)).toBe(1);
+    });
+
+    // Tests that a negative number returns -1
+    it('test_negative_number', () => {
+        expect(getCoefficient(-5)).toBe(-1);
+    });
+
+    // Tests that 0 returns 0
+    it('test_zero', () => {
+        expect(getCoefficient(0)).toBe(0);
+    });
+});
+
+
+describe('multCoefficients_function', () => {
+    // Tests that the function returns 1 when both inputs are positive integers
+    it('test_positive_integers', () => {
+        expect(multCoefficients(2, 3)).toBe(1);
+    });
+
+    // Tests that the function returns 1 when both inputs are negative integers
+    it('test_negative_integers', () => {
+        expect(multCoefficients(-2, -3)).toBe(1);
     });
 });
