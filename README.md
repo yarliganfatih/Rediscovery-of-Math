@@ -66,3 +66,19 @@ Thus, we discovered **the inverse of a number for multiplication**.
 6 / 2 = 3
 6 * (1/2) = 3
 ```
+
+## Repetition by rule
+
+### Summation
+The sigma symbol (∑) is used to represent the repetition of a number up to a certain number in a certain rule.
+
+<sub>n=1</sub>
+∑ x
+<sup>k=1</sup>
+``` 1+2+3+4+5 = 15 ```
+
+### Factorial
+The factorial notation (!) is used to represent the repeated multiplication of a positive number by all numbers up to 1.
+
+5!
+```5*4*3*2*1 = 120 ```

@@ -175,3 +175,69 @@ describe('remainder_function', () => {
         expect(remainder(-10, -5)).toBe(0);
     });
 });
+
+
+describe('sum_function', () => {
+    // Tests that the function works correctly with start, finish and step as positive integers
+    it('test_happy_path_positive_integers', () => {
+        expect(sum(1, 5, 1)).toBe(15);
+    });
+
+    // Tests that the function works correctly with start, finish and step as negative integers
+    it('test_happy_path_negative_integers', () => {
+        expect(sum(-5, -1, 1)).toBe(-15);
+    });
+
+    // Tests that the function works correctly with start and finish as 0 and step as positive integer
+    it('test_happy_path_zero_positive_step', () => {
+        expect(sum(0, 5, 0)).toBe(0);
+    });
+
+    // Tests that the function works correctly with start and finish as 0 and step as negative integer
+    it('test_happy_path_zero_negative_step', () => {
+        expect(sum(0, -5, 0)).toBe(0);
+    });
+
+    // Tests that the function works correctly with start and finish as same positive integer and step as positive integer
+    it('test_happy_path_same_positive_integers', () => {
+        expect(sum(5, 5, 1)).toBe(5);
+    });
+
+    // Tests that the function works correctly with start and finish as same negative integer and step as negative integer
+    it('test_happy_path_same_negative_integers', () => {
+        expect(sum(-5, -5, -1)).toBe(-5);
+    });
+});
+
+
+describe('fact_function', () => {
+    // Tests that the function returns 1 when input is 0
+    it('test_zero_input', () => {
+        expect(fact(0)).toBe(1);
+    });
+
+    // Tests that the function returns the correct factorial value for a positive integer input
+    it('test_positive_input', () => {
+        expect(fact(5)).toBe(120);
+    });
+
+    // Tests that the function returns undefined when input is negative
+    it('test_negative_input', () => {
+        expect(fact(-5)).toBeUndefined();
+    });
+
+    // Tests that the function returns undefined when input is not an integer
+    it('test_non_integer_input', () => {
+        expect(fact(2.5)).toBeUndefined();
+    });
+
+    // Tests that the function returns undefined when input is not divisible by 1
+    it('test_non_divisible_input', () => {
+        expect(fact(3)).toBeUndefined();
+    });
+
+    // Tests that the function can handle large inputs (e.g. 100)
+    it('test_large_input', () => {
+        expect(fact(100)).toBe(9.33262154439441e+157);
+    });
+});

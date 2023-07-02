@@ -40,11 +40,25 @@ const remainder = (a, b) => { // a%b
     return remainder(_k * subt(_a, _b), _b);
 }
 
+const sum = (start, finish, step, func = (n) => n) => {
+    if (start > finish) return 0;
+    return add(func(start), sum(add(start, step), finish, step, func));
+}
+
+const fact = (a) => {
+    if (isNegative(a)) return undefined; // I think it can be with ka
+    if (remainder(a, 1) != 0) return undefined;
+    if (a == 0) return 1;
+    return mult(a, fact(subt(a, 1)));
+}
+
 
 module.exports = {
     add,
     subt,
     mult,
     divi,
-    remainder
+    remainder,
+    sum,
+    fact
 }
