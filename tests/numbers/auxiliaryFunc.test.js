@@ -1,4 +1,4 @@
-const { isPositive, isNegative, invertByAdd, abs, getCoefficient, multCoefficients } = require('../../src/numbers/auxiliaryFunc');
+const { isPositive, isNegative, invertByAdd, invertByMult, abs, getCoefficient, multCoefficients } = require('../../src/numbers/auxiliaryFunc');
 
 
 describe('isPositive_function', () => {
@@ -46,6 +46,19 @@ describe('invertByAdd_function', () => {
     // Tests that the function returns the correct output for a zero input
     it('test_zero', () => {
         expect(invertByAdd(0)).toBe(0);
+    });
+});
+
+
+describe('invertByMult_function', () => {
+    // Tests that the function returns the correct inverse of a positive integer
+    it('test_positive_integer', () => {
+        expect(invertByMult(5)).toBe(0.2);
+    });
+
+    // Tests that the function returns the correct inverse of a positive float
+    it('test_positive_float', () => {
+        expect(invertByMult(2.5)).toBe(0.4);
     });
 });
 

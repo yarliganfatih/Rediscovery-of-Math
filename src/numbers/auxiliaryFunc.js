@@ -4,6 +4,8 @@ const isNegative = (a) => a<0;
 
 const invertByAdd = (a) => -a;
 
+const invertByMult = (a) => 1/a;
+
 const abs = (a) => isNegative(a) ? -a : a;
 
 const getCoefficient = (a) => {
@@ -25,6 +27,7 @@ module.exports = {
     isPositive,
     isNegative,
     invertByAdd,
+    invertByMult,
     abs,
     getCoefficient,
     multCoefficients

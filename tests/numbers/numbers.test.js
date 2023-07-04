@@ -1,4 +1,4 @@
-const { add, subt, mult, divi, remainder } = require('../../src/numbers/numbers');
+const { add, subt, mult, divi, remainder, sum, fact, pow } = require('../../src/numbers/numbers');
 
 
 describe('add_function', () => {
@@ -239,5 +239,43 @@ describe('fact_function', () => {
     // Tests that the function can handle large inputs (e.g. 100)
     it('test_large_input', () => {
         expect(fact(100)).toBe(9.33262154439441e+157);
+    });
+});
+
+
+describe('pow_function', () => {
+    // Tests that pow returns 1 when b is 0
+    it('test_pow_zero', () => {
+        expect(pow(2, 0)).toBe(1);
+        expect(pow(0, 0)).toBe(undefined);
+    });
+
+    // Tests that pow returns a when b is 1
+    it('test_pow_one', () => {
+        expect(pow(2, 1)).toBe(2);
+    });
+
+    // Tests that pow returns a^b when b is a positive integer
+    it('test_pow_positive_integer', () => {
+        expect(pow(2, 3)).toBe(8);
+        expect(pow(3, 4)).toBe(81);
+    });
+
+    // Tests that pow returns 1/a^b when b is a negative integer
+    it('test_pow_negative_integer', () => {
+        expect(pow(2, -3)).toBe(1/8);
+        expect(pow(3, -4)).toBe(1/81);
+    });
+
+    // Tests that pow returns the correct value when b is a decimal between 0 and 1
+    it('test_pow_decimal', () => {
+        expect(pow(2, 0.5)).toBe('^2√2');
+        expect(pow(3, 0.25)).toBe('^4√81');
+    });
+
+    // Tests that pow returns the correct value when a is negative and b is a decimal between 0 and 1
+    it('test_pow_negative_decimal', () => {
+        expect(pow(-2, 0.5)).toBe('^2√2 / 2');
+        expect(pow(-3, 0.25)).toBe('^4√81 / -3');
     });
 });

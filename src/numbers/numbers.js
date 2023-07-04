@@ -1,4 +1,4 @@
-const { isNegative, isPositive, abs, invertByAdd, getCoefficient, multCoefficients } = require('./auxiliaryFunc');
+const { isNegative, isPositive, abs, invertByAdd, invertByMult, getCoefficient, multCoefficients } = require('./auxiliaryFunc');
 
 
 const add = (a, b) => a + b;
@@ -52,6 +52,19 @@ const fact = (a) => {
     return mult(a, fact(subt(a, 1)));
 }
 
+const pow = (a, b) => {
+    let
+        kb = getCoefficient(b),
+        _b = abs(b),
+        _a = abs(a);
+    if (isNegative(b)) return `1 / ${pow(a, _b)}`; // decimal numbers
+    if (b == 0 && a == 0) return undefined;
+    if (b == 0) return 1;
+    if (_b > 0 && _b < 1) return `^${invertByMult(b)}√${_a}`;
+    if (_b == 1) return a;
+    return mult(a, pow(a, subt(b, kb)));
+}
+
 
 module.exports = {
     add,
@@ -60,5 +73,6 @@ module.exports = {
     divi,
     remainder,
     sum,
-    fact
+    fact,
+    pow
 }

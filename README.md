@@ -82,3 +82,21 @@ The factorial notation (!) is used to represent the repeated multiplication of a
 
 5!
 ```5*4*3*2*1 = 120 ```
+
+## Exponentiation & Root & Logarithm
+
+### Exponentiation
+The exponent notation (^) is used to represent the repeated multiplication of the same number. The number of repetitions of the process returns **power**.
+> Example from nature: Suppose 2 branches emerge from each branch in the tree. If this pattern is repeated 3 times, we can assume that there are 8 apples at the extremes.
+```
+        |          = 2^0 = 1
+       / \         = 2^1 = 2
+      /   \
+     /     \
+    /       \
+   /\       /\     = 2^2 = 4
+  /  \     /  \
+ /\  /\   /\  /\
+• • • •   • • • •  = 2^3 = 8
+```
+The reason why the result obtained with 0 power of a number is 1 is due to the ineffective element in the multiplication operation.
