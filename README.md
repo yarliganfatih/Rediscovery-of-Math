@@ -100,3 +100,17 @@ The exponent notation (^) is used to represent the repeated multiplication of th
 • • • •   • • • •  = 2^3 = 8
 ```
 The reason why the result obtained with 0 power of a number is 1 is due to the ineffective element in the multiplication operation.
+
+## Prime numbers
+Many numbers are the product of smaller numbers. Minority prime numbers are the smallest building blocks of these products.
+- Since the number 0 is the absorbing element in multiplication, we skip it.
+- The number 1, on the other hand, does not have a distinguishing feature between numbers, as it is an ineffective element in multiplication.
+- Numbers such as 2, 3 and 5 are prime numbers because they cannot be divided by numbers other than 1 and themselves.
+- But the number 4 is not a prime because it is divisible by other numbers.
+```1*4 = 2*2 = 4*1 = 4```
+> Also another way we classify numbers is those that are multiples of 2 (even numbers) and those that aren't (odd numbers).
+
+### Prime Divisors
+We can divide a number into its prime divisors by dividing by repeating the prime numbers, respectively.
+> Thanks to the obtained expression, we can find more efficient solutions to our real-life problems by calculating the **greatest common divisor** or **least common multiple** between two numbers.
+In particular, it is one of the best methods we will use to reverse the exponentiation operation, which consists of repeating the multiplication operation.
