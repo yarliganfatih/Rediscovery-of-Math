@@ -114,3 +114,43 @@ Many numbers are the product of smaller numbers. Minority prime numbers are the 
 We can divide a number into its prime divisors by dividing by repeating the prime numbers, respectively.
 > Thanks to the obtained expression, we can find more efficient solutions to our real-life problems by calculating the **greatest common divisor** or **least common multiple** between two numbers.
 In particular, it is one of the best methods we will use to reverse the exponentiation operation, which consists of repeating the multiplication operation.
+
+### Root / Sqrt
+The denominator of the decimal power of a number can also be expressed with the root (√). Since the root number is the inverse of multiplication in exponent notation, we can think of the root operation as the inverse of the exponent.
+While some numbers can give results as integers, some numbers can give irrational/decimal results. Therefore, the result can also be represented as an integer multiplied by the root.
+
+In order for the number to come out of the root as an integer, its exponent and the root must simplify each other. This is possible with an exponent that has the inverse of the root number for multiplication.
+
+<details>
+<summary>
+Why do even-numbered roots have more than one answer?
+</summary>
+Because the inside of the root is a number obtained by repeating the multiplication with itself. It will consist of the product of either two positive numbers or two negative numbers. Both give positive numbers. Therefore, the fact that the number inside the root is positive does not guarantee that it will be positive outside the root.
+</details>
+
+If the number inside the root is a negative number, we switch to the virtual dimension. We use the expression i=√-1 for the representation of imaginary numbers. In all operations until now, we were able to display the result on the number line. Although imaginary numbers do not have a representation on the real number line, it is inevitable for i^2 to reach the -1 point.
+Based on this, it was decided to show a perpendicular imaginary number line that cuts the real number line from 0.
+```
+         ↑
+         |
+         • 2i
+         |
+         • i
+         |
+<--•--•--•--•--•-->
+  -2 -1  |  1  2
+         • -i
+         |
+         • -2i
+         |
+         ↓
+```
+Transitions between two number lines can be achieved by turning 90 degrees clockwise as 1 is added to the exponent.
+```
+i^1 =  i    i^5 =  i
+i^2 = -1    i^6 = -1
+i^3 = -i    i^7 = -i
+i^4 =  1    i^8 =  1
+...
+```
+The transitions here give us the unit circle in the two-dimensional plane. Here we give a little nod to geometry.
