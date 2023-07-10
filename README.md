@@ -154,3 +154,10 @@ i^4 =  1    i^8 =  1
 ...
 ```
 The transitions here give us the unit circle in the two-dimensional plane. Here we give a little nod to geometry.
+
+### Logarithm
+A logarithm is a notation used to find the power of one number to another.
+
+After dividing the numbers into prime divisors in logarithms and converting them to exponential expressions, a rational number or a logarithmic expression that can be multiplied by a number can be obtained.
+
+Because the number we want to take out of the logarithm is the power of the logarithm base of the number inside. If we have exponential expressions in a way that equates our base and base numbers, we can obtain the result by dividing the base in the base by the base in the base.
