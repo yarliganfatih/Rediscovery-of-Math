@@ -161,3 +161,27 @@ A logarithm is a notation used to find the power of one number to another.
 After dividing the numbers into prime divisors in logarithms and converting them to exponential expressions, a rational number or a logarithmic expression that can be multiplied by a number can be obtained.
 
 Because the number we want to take out of the logarithm is the power of the logarithm base of the number inside. If we have exponential expressions in a way that equates our base and base numbers, we can obtain the result by dividing the base in the base by the base in the base.
+
+## Series
+It is the name given to a group of numbers.
+
+Some analysis can be done by comparing the series on graphs.
+
+### Total
+It is the sum of the numbers in the series.
+
+### Mode
+Shows the most repeated numbers in the series.
+
+### median
+An element or two that remain in the middle after the series is sorted is the median of the series.
+
+### Arithmetic mean
+It is obtained by dividing the sum of the numbers in the series by the number of elements.
+> Example from nature: you asked your children to collect as many apples as they could, then you wanted to distribute the collected apples equally to each child. With this process, each will have an equal number of apples at the end of the day, despite the possibility of each picking a different number of apples.
+
+### Geometric Average
+It is obtained by taking the product of the numbers in the series as the root of the number of elements.
+
+### Harmonic Average
+It is obtained by dividing the number of elements by the sum of the inverses of the numbers in the series.
