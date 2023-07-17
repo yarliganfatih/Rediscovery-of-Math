@@ -46,10 +46,10 @@ const sum = (start, finish, step, func = (n) => n) => {
 }
 
 const fact = (a) => {
-    if (isNegative(a)) return undefined; // I think it can be with ka
+    let ka = getCoefficient(a);
     if (remainder(a, 1) != 0) return undefined;
-    if (a == 0) return 1;
-    return mult(a, fact(subt(a, 1)));
+    if (a == 0) return ka;
+    return mult(a, fact(subt(a, ka))); // In this way, negative numbers are multiplied by iteratively towards 0, too.
 }
 
 
