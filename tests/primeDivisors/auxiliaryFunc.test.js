@@ -43,7 +43,7 @@ describe('isPrime_function', () => {
 describe('convertPrime_function', () => {
     // Tests that the function returns an empty array when given a prime number
     it('test_prime_number', () => {
-        expect(convertPrime(7)).toEqual([]);
+        expect(convertPrime(7)).toEqual([[7, 1]]);
     });
 
     // Tests that the function returns an array of prime factors when given a composite number
@@ -75,16 +75,16 @@ describe('mergePrime_function', () => {
 
     // Tests that the function ignores non-prime numbers in the input
     it('test_non_prime_numbers', () => {
-        expect(mergePrime([[2, 1], [3, 1], [4, 1], [5, 1]])).toBe(30);
-        expect(mergePrime([[2, 2], [3, 1], [4, 1], [5, 1]])).toBe(60);
-        expect(mergePrime([[2, 2], [3, 2], [4, 1], [5, 1]])).toBe(180);
+        expect(mergePrime([[2, 1], [3, 1], [4, 1], [5, 1]])).toBe(120);
+        expect(mergePrime([[2, 2], [3, 1], [4, 1], [5, 1]])).toBe(240);
+        expect(mergePrime([[2, 2], [3, 2], [4, 1], [5, 1]])).toBe(720);
     });
 
     // Tests that the function ignores negative numbers in the input
     it('test_negative_numbers', () => {
-        expect(mergePrime([[-2, 1], [3, 1], [5, 1]])).toBe(30);
-        expect(mergePrime([[2, 2], [-3, 1], [5, 1]])).toBe(20);
-        expect(mergePrime([[2, 2], [3, 2], [-5, 1]])).toBe(36);
+        expect(mergePrime([[-2, 1], [3, 1], [5, 1]])).toBe(-30);
+        expect(mergePrime([[2, 2], [-3, 1], [5, 1]])).toBe(-60);
+        expect(mergePrime([[-2, 2], [3, 2], [5, 1]])).toBe(180);
     });
 });
 
@@ -98,13 +98,13 @@ describe('countPositiveDivisors_function', () => {
 
     // Tests that countPositiveDivisors function returns 0 for negative numbers
     it('test_is_negative', () => {
-        expect(countPositiveDivisors(-7)).toBe(0);
-        expect(countPositiveDivisors(-10)).toBe(0);
+        expect(countPositiveDivisors(-7)).toBe(2);
+        expect(countPositiveDivisors(-10)).toBe(4);
     });
 
     // Tests that countPositiveDivisors function returns 0 for 0
     it('test_zero', () => {
-        expect(countPositiveDivisors(0)).toBe(0);
+        expect(countPositiveDivisors(0)).toBeUndefined();
     });
 
     // Tests that countPositiveDivisors function returns 1 for 1
@@ -120,8 +120,8 @@ describe('countPositiveDivisors_function', () => {
 
     // Tests that countPositiveDivisors function returns 0 for a large negative number
     it('test_negative_large_number', () => {
-        expect(countPositiveDivisors(-100)).toBe(0);
-        expect(countPositiveDivisors(-120)).toBe(0);
+        expect(countPositiveDivisors(-100)).toBe(9);
+        expect(countPositiveDivisors(-120)).toBe(16);
     });
 });
 

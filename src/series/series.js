@@ -15,6 +15,7 @@ const mod = (nums) => {
     let mods = [ Number(__nums[0][0]) ];
     while(__nums[mods.length][1] == __nums[mods.length-1][1]){
         mods.push(Number(__nums[mods.length][0]));
+        if(mods.length == __nums.length) break;
     }
     return mods;
 }
@@ -22,6 +23,7 @@ const mod = (nums) => {
 const median = (nums) => {
     nums.sort((a, b) => subt(a, b));
     let nLen = nums.length;
+    if(nLen==0) return undefined;
     let medianIndex = divi(nLen, 2);
     if(remainder(nLen, 2)==1) return nums[medianIndex];
     return [nums[subt(medianIndex, 1)], nums[medianIndex]];

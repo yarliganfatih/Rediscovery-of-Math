@@ -81,7 +81,12 @@ describe('abs_function', () => {
 
     // Tests that the function returns the absolute value of the smallest negative number
     it('test_smallest_negative_number', () => {
-        expect(abs(Number.MIN_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER + 1);
+        expect(abs(Number.MIN_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER);
+    });
+
+    // Tests that the function returns the absolute value of the biggest positive number
+    it('test_biggest_positive_number', () => {
+        expect(abs(Number.MAX_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER);
     });
 });
 

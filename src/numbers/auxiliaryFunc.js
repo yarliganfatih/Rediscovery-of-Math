@@ -2,7 +2,7 @@ const isPositive = (a) => a>0;
 
 const isNegative = (a) => a<0;
 
-const invertByAdd = (a) => -a;
+const invertByAdd = (a) => a!=0 ? -a : a;
 
 const invertByMult = (a) => 1/a;
 

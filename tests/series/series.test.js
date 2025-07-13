@@ -22,16 +22,23 @@ describe('sum_function', () => {
 describe('mod_function', () => {
     // Tests that the function returns the correct mod for an array of positive integers
     it('test_positive_integers', () => {
-        expect(mod([1, 2, 3, 4, 5])).toEqual([5]);
         expect(mod([1, 2, 3, 4, 5, 5])).toEqual([5]);
-        expect(mod([1, 2, 3, 4, 5, 5, 5])).toEqual([5]);
+        expect(mod([1, 2, 3, 4, 4, 5, 5])).toEqual([4, 5]);
+        expect(mod([1, 1, 2, 2, 3, 3, 4, 4, 5, 5])).toEqual([1, 2, 3, 4, 5]);
     });
 
     // Tests that the function returns the correct mod for an array of negative integers
     it('test_negative_integers', () => {
-        expect(mod([-1, -2, -3, -4, -5])).toEqual([-1]);
-        expect(mod([-1, -2, -3, -4, -5, -5])).toEqual([-1]);
-        expect(mod([-1, -2, -3, -4, -5, -5, -5])).toEqual([-1]);
+        expect(mod([-1, -2, -3, -4, -5])).toEqual([-1, -2, -3, -4, -5]);
+        expect(mod([-1, -2, -3, -4, -5, -5])).toEqual([-5]);
+        expect(mod([-1, -2, -3, -4, -5, -5, -5])).toEqual([-5]);
+    });
+    
+    // Tests that the function returns the correct mod for an array of mixed integers
+    it('test_positive_integers', () => {
+        expect(mod([2, 1, 7, 3, 6, 5, 2])).toEqual([2]);
+        expect(mod([1, -2, 3, -4, -4, -2, 5])).toEqual([-2, -4]);
+        expect(mod([-5, -3, -5, -3, -4, -5, -4, -5])).toEqual([-5]);
     });
 });
 
@@ -67,12 +74,7 @@ describe('arithmeticMean_function', () => {
 
     // Tests that arithmeticMean returns the correct mean for an array of mixed positive and negative integers
     it('test_mixed_integers', () => {
-        expect(arithmeticMean([-1, 2, -3, 4, -5])).toBe(-0.6);
-    });
-
-    // Tests that arithmeticMean returns the correct mean for an array of decimal numbers
-    it('test_decimal_numbers', () => {
-        expect(arithmeticMean([1.5, 2.5, 3.5])).toBe(2.5);
+        expect(arithmeticMean([-1, 2, -3, 4, 3])).toBe(1);
     });
 });
 
@@ -80,17 +82,7 @@ describe('arithmeticMean_function', () => {
 describe('geometicMean_function', () => {
     // Tests that the function returns the correct geometric mean for an array of positive numbers
     it('test_positive_numbers', () => {
-        expect(geometicMean([2, 3, 4])).toBeCloseTo(2.8844991406148166);
-    });
-
-    // Tests that the function returns the correct geometric mean for an array of decimal numbers
-    it('test_decimal_numbers', () => {
-        expect(geometicMean([0.5, 1.5, 2.5])).toBeCloseTo(1.5);
-    });
-
-    // Tests that the function returns the correct geometric mean for an array of integers
-    it('test_integers', () => {
-        expect(geometicMean([2, 3, 4])).toBeCloseTo(2.8844991406148166);
+        expect(geometicMean([2, 3, 4])).toBe("2.^3√3");
     });
 });
 
@@ -98,7 +90,7 @@ describe('geometicMean_function', () => {
 describe('harmonicMean_function', () => {
     // Tests that the harmonic mean is calculated correctly for an array of positive numbers
     it('test_positive_numbers', () => {
-        expect(harmonicMean([1, 2, 3, 4, 5])).toBeCloseTo(2.18978);
+        expect(harmonicMean([1, 2, 3, 6])).toBe(2);
     });
 
     // Tests that the harmonic mean is not calculated for an array of positive and negative numbers

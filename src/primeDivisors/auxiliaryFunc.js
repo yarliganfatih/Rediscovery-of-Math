@@ -1,13 +1,13 @@
-const { isNegative, isPositive, abs } = require('../numbers/auxiliaryFunc');
+const { isNegative, isPositive, abs, invertByAdd } = require('../numbers/auxiliaryFunc');
 const { add, subt, mult, divi, remainder, pow } = require('../numbers/numbers');
-const { getMax } = require('../series/auxiliaryFunc');
+const { getMax, getMin } = require('../series/auxiliaryFunc');
 
 const isPrime = (a) => {
     if(isNegative(a)) return 0;
     if(a==0) return 0;
     if(a==1) return 0;
     if(remainder(a, 1)!=0) return 0;
-    for(let j=2; j<a/2; j++){
+    for(let j=2; j<=a/2; j++){
         if(remainder(a, j)==0) return 0;
     }
     return 1;
@@ -15,7 +15,11 @@ const isPrime = (a) => {
 
 const convertPrime = (a) => {
     let primed = [];
-    for(let j=2; j<a/2; j++){
+    if(isNegative(a)){
+        primed.push([-1, 1]);
+        a = invertByAdd(a);
+    }
+    for(let j=2; j<=a/2; j++){
         if(isPrime(a)) break;
         if(!isPrime(j)) continue;
         let _primed = [j, 0];
@@ -38,9 +42,8 @@ const mergePrime = (primed) => {
 }
 
 const countPositiveDivisors = (a) => {
-    // related to possibility
-    if(isPrime(a)) return 2; // 1 and a
-    let primedA = convertPrime(a);
+    if(a==0) return undefined;
+    let primedA = convertPrime(abs(a));
     let count = 1;
     primedA.forEach(([prA, poA]) => {
         count = mult(count, add(poA, 1));
@@ -49,27 +52,27 @@ const countPositiveDivisors = (a) => {
 }
 
 const greatestCommonDivisor = (a, b) => {
-    let primedA = convertPrime(a);
-    let primedB = convertPrime(b);
+    let primedA = convertPrime(abs(a));
+    let primedB = convertPrime(abs(b));
     let primedGCD = [];
-    primedB.forEach((itemB) => {
-        let foundIndex = primedA.findIndex(itemA => itemA[0] == itemB[0]);
-        if(foundIndex!=-1) primedGCD.push(itemB); // common prime numbers
+    primedB.forEach(([prB, poB]) => {
+        let foundIndex = primedA.findIndex(itemA => itemA[0] == prB);
+        if(foundIndex!=-1) primedGCD.push([prB, getMin([poB, primedA[foundIndex][1]])]); // common prime numbers
     });
     return mergePrime(primedGCD);
 }
 
 const leastCommonMultiple = (a, b) => {
-    let primedA = convertPrime(a);
-    let primedB = convertPrime(b);
+    let primedA = convertPrime(abs(a));
+    let primedB = convertPrime(abs(b));
     let primedLCM = primedA;
     primedB.forEach(([prB, poB]) => {
         let foundIndex = primedA.findIndex(item => item[0] == prB);
         if(foundIndex==-1){
-            primedLCM.push([prB, poB]); // common prime numbers
+            primedLCM.push([prB, poB]);
             return;
         }
-        primedLCM[foundIndex][1] = getMax([poB, primedLCM[foundIndex][1]]);
+        primedLCM[foundIndex][1] = getMax([poB, primedA[foundIndex][1]]);
     });
     return mergePrime(primedLCM);
 }
